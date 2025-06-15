@@ -1,0 +1,59 @@
+
+.login-container {
+            text-align: center;
+            padding: 2rem;
+            /* border: 1px solid #ddd; */
+            border-radius: 8px;
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+                margin-top: 300px;
+        }
+        .btn-login {
+            background-color: #6f42c1;
+            border: none;
+            width: 100%;
+            color: #fff;
+        }
+        .btn-login:hover {
+            background-color: #5a32a3;
+        }
+        .error-text {
+            color: #dc3545;
+            font-size: 0.875rem;
+            text-align: left;
+            margin-top: 0.25rem;
+        }
+        .form-label {
+            text-align: left;
+            display: block;
+        }
+        .forgot-password {
+            text-align: right;
+            color: #6c757d;
+            
+            display: block;
+        }
+        .social-icons a {
+            margin: 0 5px;
+            font-size: 1.5rem;
+            color: currentColor; 
+        }
+        .welcome-title {
+            color: #2c3e50;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 18px;
+        }
+        .password-label{
+display: inline-block;
+        }
+
+        .forgot-password{
+float: right;
+color:#7367F0;
+        }
+        
+        .text-primary
+        {
+            color:#7367F0 !important;
+        }

@@ -1,0 +1,26 @@
+ .signup-container {
+            text-align: center;
+            padding: 2rem;
+            /* border: 1px solid #ddd; */
+            border-radius: 8px;
+            background-color: #fff;
+            margin-top: 200px;
+        }
+        .btn-signup {
+            background-color: #6f42c1;
+            border: none;
+            width: 100%;
+        }
+        .btn-signup:hover {
+            background-color: #5a32a3;
+        }
+        .error-text {
+            color: #dc3545;
+            font-size: 0.875rem;
+            text-align: left;
+            margin-top: 0.25rem;
+        }
+        .social-icons a {
+            margin: 0 5px;
+            font-size: 1.5rem;
+        }
