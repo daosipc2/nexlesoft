@@ -151,20 +151,22 @@ namespace Nexlesoft.Backend.Controllers
 
         [Authorize]
         [HttpPost("signout")]
-        public async Task<IActionResult> Signout()
+        public async Task<IActionResult> Signout(RefreshTokenDto refreshDto)
         {
-            APIResponse response = new APIResponse();            
-
-            var userIdClaim = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
-            // var emailClaim = User.FindFirst(JwtRegisteredClaimNames.Email)?.Value;
-
-            if (string.IsNullOrWhiteSpace(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
-                return Unauthorized(); // 401
-
-            await _userService.SignOut(userId);
+            APIResponse response = new APIResponse();
+            try
+            {
+                await _userService.SignOut(refreshDto.RefreshToken);
+            }
+            catch (Exception ex)
+            {
+                response.Status = false;
+                response.Message = "An internal error occurred.";
+                return StatusCode(500, response); // 500 http code on internal error
+            }
 
             response.Status = true;
-            return StatusCode(201, response);
+            return StatusCode(204, response); //	204 http code on success
         }
     }
 }

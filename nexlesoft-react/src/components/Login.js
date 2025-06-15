@@ -64,6 +64,7 @@ const Login = () => {
                         sessionStorage.setItem('username', result.user.email);
                         sessionStorage.setItem('fullName', result.user.firstName + ' ' + result.user.lastName);
                         sessionStorage.setItem('jwttoken', result.token);
+                        sessionStorage.setItem('refreshToken', result.refreshToken);
                         setToken(result.token);
 
                         usenavigate('/Dashboard');

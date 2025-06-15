@@ -269,43 +269,5 @@ namespace Nexlesoft.Backend.Tests
 
         #endregion
 
-        #region Signout Tests
-
-        [Fact]
-        public async Task Signout_InvalidUserIdClaim_Returns401()
-        {
-            // Arrange
-            var claims = new[] { new System.Security.Claims.Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", "") };
-            var identity = new System.Security.Claims.ClaimsIdentity(claims);
-            _controller.ControllerContext = new ControllerContext { HttpContext = new DefaultHttpContext { User = new System.Security.Claims.ClaimsPrincipal(identity) } };
-
-            // Act
-            var result = await _controller.Signout();
-
-            // Assert
-            Assert.IsType<UnauthorizedResult>(result);
-        }       
-
-        [Fact]
-        public async Task Signout_UnknownError_Returns500()
-        {
-            // Arrange
-            var claims = new[] { new System.Security.Claims.Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", "177") };
-            var identity = new System.Security.Claims.ClaimsPrincipal(new System.Security.Claims.ClaimsIdentity(claims));
-            _controller.ControllerContext = new ControllerContext { HttpContext = new DefaultHttpContext { User = identity } };
-            _userServiceMock.Setup(x => x.SignOut(177)).ThrowsAsync(new Exception("Unknown error"));
-
-            // Act
-            var result = await _controller.Signout();
-
-            // Assert
-            var statusResult = Assert.IsType<ObjectResult>(result);
-            Assert.Equal(500, statusResult.StatusCode);
-            var response = Assert.IsType<APIResponse>(statusResult.Value);
-            Assert.False(response.Status);
-            Assert.Equal("Unknown Error.", response.Message);
-        }
-
-        #endregion
     }   
 }

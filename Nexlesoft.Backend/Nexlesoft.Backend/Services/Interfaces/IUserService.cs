@@ -8,7 +8,7 @@ namespace Nexlesoft.Backend.Services.Interfaces
         Task<User> CreateUser(UserDto userDto);
         Task<SigninResponseDto> Signin(string username, string password);
 
-        Task<bool> SignOut(int userId);
+        Task<bool> SignOut(string refreshToken);
         Task<List<UserDto>> Getall();
         Task<RefreshTokenResponseDto> RefreshToken(string refreshToken);
         Task<APIResponse> ValidateRefreshToken(string refreshToken);

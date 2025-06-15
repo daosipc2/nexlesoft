@@ -12,6 +12,7 @@ namespace Nexlesoft.Application.Interfaces
         Task<Token> GetByUserId(int userId);
         Task<bool> UpdateRefreshToken(int tokenId, string refreshToken);
         Task<bool> DeleteAllByUserId(int userId);
+        Task<bool> DeleteRefreshToken(string refreshToken);
         Task<Token> GetByRefreshToken(string refreshToken);
     }
 }

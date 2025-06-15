@@ -9,9 +9,9 @@ import '../Header.css';
 
 const Header = () => {
     //const signoutUrl = "http://localhost:63924/Users/signout";
-    const signoutUrl = 'http://nexle.seehire.us/backend/Users/signout';
+    const _signoutUrl = 'http://nexle.seehire.us/backend/Users/signout';
     const navigate = useNavigate();
-    const { token, setToken } = useContext(AuthContext);
+    const { token, setToken } = useContext(AuthContext);    
     const [isOpen, setIsOpen] = useState(false);
     const [errors, setErrors] = useState('');
 
@@ -21,30 +21,32 @@ const Header = () => {
 
     const handleLogout = (e) => {
         const jwtToken = sessionStorage.getItem('jwttoken');
-        fetch(signoutUrl, {
+        const refreshToken = sessionStorage.getItem('refreshToken');
+        let data ={RefreshToken:refreshToken};
+
+        fetch(_signoutUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${jwtToken}`,
             },
-            body: null
-        }).then((res) => {
-            return res.json();
+            body: JSON.stringify(data),
         }).then((res) => {
             console.log(res)
 
-            if (res.status === 400) {
+            if (res.status === 500) {
                 // will succeed if the server will always respond with JSON with a 400 response                   
 
-                const errorMessages = Object.values(res.errors).flat().join('<br/> ');
+                const errorMessages = "Bad request!";
                 setErrors(errorMessages);
                 toast.error(errorMessages);
             }
-            else {
+            else if (res.status === 204) {
                 //toast.success('Logout...');                
                 sessionStorage.removeItem('username');
                 sessionStorage.removeItem('fullName');
                 sessionStorage.removeItem('jwttoken');
+                sessionStorage.removeItem('refreshToken');                
                 setToken(null);
                 navigate('/sign-in');
             }

@@ -44,6 +44,28 @@ namespace Nexlesoft.Infrastructure.Repositories
             return true;
         }
 
+        public async Task<bool> DeleteRefreshToken(string RefreshToken)
+        {
+            try
+            {
+                var token = await _context.Tokens
+                   .FirstOrDefaultAsync(t => t.RefreshToken == RefreshToken);
+
+                if (token != null)
+                {
+                    _context.Tokens.Remove(token);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                // TODO: log error
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<bool> UpdateRefreshToken(int tokenId, string refreshToken)
         {
             var token = await _context.Tokens.FirstOrDefaultAsync(x => x.Id == tokenId);

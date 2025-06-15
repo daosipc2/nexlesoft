@@ -114,9 +114,9 @@ namespace Nexlesoft.Backend.Services
 
             return result;
         }
-        public async Task<bool> SignOut(int userId)
+        public async Task<bool> SignOut(string refreshToken)
         {
-            await _tokenRepository.DeleteAllByUserId(userId);
+            await _tokenRepository.DeleteRefreshToken(refreshToken);
 
             return true;
         }
