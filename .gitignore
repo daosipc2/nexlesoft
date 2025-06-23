@@ -1,0 +1,12 @@
+/nexlesoft-react/node_modules
+/nexlesoft-react/build
+/Nexlesoft.Backend/.vs
+/Nexlesoft.Backend/Nexlesoft.Application/bin
+/Nexlesoft.Backend/Nexlesoft.Application/obj
+/Nexlesoft.Backend/Nexlesoft.Backend/bin
+/Nexlesoft.Backend/Nexlesoft.Backend/obj
+/Nexlesoft.Backend/Nexlesoft.Backend/Nexlesoft.Backend.csproj.user
+/Nexlesoft.Backend/Nexlesoft.Domain/bin
+/Nexlesoft.Backend/Nexlesoft.Infrastructure/bin
+/Nexlesoft.Backend/Nexlesoft.Domain/obj
+/Nexlesoft.Backend/Nexlesoft.Infrastructure/obj
