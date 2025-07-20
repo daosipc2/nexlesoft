@@ -3,7 +3,7 @@
 ## Setup Instructions
 
 ### Prerequisites
-- **Development Environment**: Visual Studio 2022 or later, .NET 8 SDK.
+- **Development Environment**: Visual Studio 2022 or later, .NET 9 SDK.
 - **Database**: SQL Server 2016 
 - **Tools**: Git, Docker (optional).
 
@@ -51,3 +51,11 @@ Run: cd ../CodeLeap.Backend.Tests && dotnet test
 ```  
 Open / or /swagger in a browser   
 ```     
+
+### Design Decisions
+- Clean Architecture: Organizes the application into distinct layers—presentation (controllers), business logic (services), and data access (repositories)—to ensure separation of concerns and facilitate easier maintenance.
+- JWT Authentication: Used for stateless security with [Authorize] and [ClaimRequirement] for access control.
+- Serilog Logging: Implemented with file rotation and error-level logging for debugging.
+- Swagger Documentation: Adopted for auto-generated API docs using Swashbuckle.
+
+ 
