@@ -33,12 +33,21 @@
 5. **Database Migration**:
 - Run the following commands to apply database migrations:
   
-  dotnet ef migrations add InitialData --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend
-  dotnet ef database update --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend  
+  ```  
+  dotnet ef migrations add InitialData --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend  
+  dotnet ef database update --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend
+  ```
+  
 6. **Run the Application**:
+```  
 Run: dotnet run from the the root directory
-7. **Run Tests**:
+```
+
+7. **Run Tests**:   
+```  
 Run: cd ../CodeLeap.Backend.Tests && dotnet test
+```  
 8. **Access Swagger UI**:
+```  
 Open / or /swagger in a browser   
-   
+```     
