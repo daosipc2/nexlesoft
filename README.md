@@ -4,28 +4,34 @@
 
 ### Prerequisites
 - **Development Environment**: Visual Studio 2022 or later, .NET 8 SDK.
-- **Database**: SQL server 2016 
+- **Database**: SQL Server 2016 
 - **Tools**: Git, Docker (optional).
 
 ### Installation Steps
-1. Clone the repository: `git clone <repository-url>`
-2. Restore dependencies: `dotnet restore`
-3. Configure `appsettings.json`:
-   ```json
-   {
-     "Jwt": {
-       "SecretKey": "your-secret-key-should-be-at-least-16-characters-long",
-       "Issuer": "your-issuer",
-       "Audience": "your-audience"
-     },
-     "ConnectionStrings": {
-       "DefaultConnection": "your-connection-string"
+1. **Clone the Repository**:  
+   - Run: `git clone <repository-url>`
+
+2. **Restore Dependencies**:  
+   - Run: `dotnet restore`
+
+3. **Configure `appsettings.json`**:  
+   - Update with:
+     ```json
+     {
+       "Jwt": {
+         "SecretKey": "your-secret-key-should-be-at-least-16-characters-long",
+         "Issuer": "your-issuer",
+         "Audience": "your-audience"
+       },
+       "ConnectionStrings": {
+         "DefaultConnection": "your-connection-string"
+       }
      }
-   }
-4. Build the Project:
+     
+4. *Build the Project:*
 - Run: dotnet build
-5. Database Migration
-  Please run:
+5. Database Migration:
+  Run the following commands to apply database migrations:
   dotnet ef migrations add InitialData --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend
   dotnet ef database update --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend  
 5. Run the Application:
