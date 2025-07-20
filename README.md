@@ -32,6 +32,7 @@
 - Run: dotnet build
 5. **Database Migration**:
 - Run the following commands to apply database migrations:
+  
   dotnet ef migrations add InitialData --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend
   dotnet ef database update --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend  
 6. **Run the Application**:
