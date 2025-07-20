@@ -24,6 +24,10 @@
    }
 4. Build the Project:
 - Run: dotnet build
+5. Database Migration
+  Please run:
+  dotnet ef migrations add InitialData --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend
+  dotnet ef database update --project CodeLeap.Infrastructure --startup-project CodeLeap.Backend  
 5. Run the Application:
 Run: dotnet run from the the root directory
 6. Run Tests:
