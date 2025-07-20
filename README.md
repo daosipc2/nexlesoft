@@ -4,13 +4,7 @@
 
 ### Prerequisites
 - **Development Environment**: Visual Studio 2022 or later, .NET 8 SDK.
-- **Dependencies**: Ensure the following NuGet packages are installed:
-  - `Microsoft.AspNetCore.Mvc`
-  - `Serilog.AspNetCore`
-  - `Serilog.Sinks.File`
-  - `Swashbuckle.AspNetCore`
-  - `NUnit`, `NUnit3TestAdapter`, `Moq`, `Microsoft.NET.Test.Sdk` (for tests)
-- **Database**: A compatible database (e.g., SQL Server) configured for service implementations.
+- **Database**: SQL server 2016 
 - **Tools**: Git, Docker (optional).
 
 ### Installation Steps
@@ -28,4 +22,12 @@
        "DefaultConnection": "your-connection-string"
      }
    }
+4. Build the Project:
+- Run: dotnet build
+5. Run the Application:
+Run: dotnet run from the the root directory
+6. Run Tests:
+Run: cd ../CodeLeap.Backend.Tests && dotnet test
+7. Access Swagger UI:
+Open / or /swagger in a browser   
    
